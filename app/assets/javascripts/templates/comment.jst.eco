@@ -1,0 +1,18 @@
+<%= @comment["body"] %><br>
+
+<form action="/comments" class="new_comment" id="new_comment" method="post">
+  <input id="comment_body" name="comment[body]" placeholder="Enter comment" size="30" type="text" data-id="<%= @comment["id"] %>">
+  <!-- need to change the user_id value here -->
+  <input id="comment_user_id" name="comment[user_id]" type="hidden" value="1" data-id="<%= @comment["id"] %>">
+  <input id="comment_commentable_id" name="comment[commentable_id]" type="hidden" value="<%= @comment["id"] %>" data-id="<%= @comment["id"] %>">
+  <input id="comment_commentable_type" name="comment[commentable_type]" type="hidden" value="Comment" data-id="<%= @comment["id"] %>">
+  <input id="comment_button" name="commit" type="submit" value="Create Comment" data-id="<%= @comment["id"] %>">
+</form>
+
+<div id="subcomments" class="all_comments_<%= @comment["id"] %>" data-id="subcomment">
+<h5>Comments:</h5>
+</div>
+
+<!-- JST["templates/comment"](comment: data) -->
+<!-- + data['commentable_id'] -->
+<!-- JST["templates/comment"](comment: item) -->

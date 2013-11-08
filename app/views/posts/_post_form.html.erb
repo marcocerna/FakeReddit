@@ -1,0 +1,9 @@
+<h2>Make your own!</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.text_field :link, placeholder: "Link" %>
+  <%= f.text_field :body, placeholder: "Text" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Create Post", id: "post_button" %>
+<% end %>
+<br>

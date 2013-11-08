@@ -1,0 +1,18 @@
+<div class="post">
+
+<h3><a href="<%= @post.link %>"><%= @post.body %></a></h3>
+
+<form action="/comments" class="new_comment" id="new_comment" method="post">
+  <input id="comment_body" name="comment[body]" placeholder="Enter comment" size="30" type="text" data-id="<%= @post.id %>">
+  <!-- need to change the user_id value here -->
+  <input id="comment_user_id" name="comment[user_id]" type="hidden" value="1" data-id="<%= @post.id %>">
+  <input id="comment_commentable_id" name="comment[commentable_id]" type="hidden" value="<%= @post.id %>" data-id="<%= @post.id %>">
+  <input id="comment_commentable_type" name="comment[commentable_type]" type="hidden" value="Post" data-id="<%= @post.id %>">
+  <input id="comment_button" name="commit" type="submit" value="Create Comment" data-id="<%= @post.id %>">
+</form>
+
+<div id="comments" class="all_comments_<%= @post.id %>">
+<h4>Comments:</h4>
+</div>
+
+</div>
